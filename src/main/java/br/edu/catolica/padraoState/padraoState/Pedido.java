@@ -19,4 +19,12 @@ public class Pedido {
         this.enviado = new EnviadoState(this);
         this.estadoAtual = this.aguardandoPagamento;
     }
+
+    public void realizarPagamento(){
+        try{
+            this.estadoAtual.pago();
+        }catch (IllegalStateException ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 }
